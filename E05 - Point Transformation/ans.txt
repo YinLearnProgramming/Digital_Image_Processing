@@ -1,0 +1,31 @@
+invert <---C1 
+g2 = 255 - I;
+
+Add constant.  Note constant can be negative. C2
+g = I + number;
+
+Multiply constant.  Note constant can be < 1.0   Never match
+f1 = I*2;
+
+Log <---C4
+255/log 256 * log(f+1);
+
+Linear contrast stretching <--C3
+g = ((gmaxout - gminout)/(gmax - gmin))*(I - gmin) + gminout;
+
+
+[r,c] = size(I);
+
+for i=1:1:r
+    for j=1:1:c
+        CS(r,c) = I(r,c)*0.5;
+    end
+end
+[r,c] = size(I);
+factor = 2;
+for i=1:r
+    for j=1:c
+        LogImage(i,j) = factor*log(I(i,j)+1);
+    end
+end
+c4double = im2double(c4);
