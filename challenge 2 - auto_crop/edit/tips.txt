@@ -1,0 +1,5 @@
+challenge2 
+gray it
+thresholding
+median for remove the words in paper
+edge detection
